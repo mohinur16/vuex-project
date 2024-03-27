@@ -4,13 +4,16 @@
 			<h1 class="h3 mb-3 fw-normal">Register</h1>
 			<Input
 				:type="'text'"
-				:label="'Your name'" />
+				:label="'Your name'"
+				id="1" />
 			<Input
 				:type="'email'"
-				:label="'Email address'" />
+				:label="'Email address'"
+				id="2" />
 			<Input
 				:type="'password'"
-				:label="'Password'" />
+				:label="'Password'"
+				id="3" />
 
 			<Button
 				type="submit"
@@ -32,10 +35,7 @@ export default {
 	methods: {
 		submitHandler(e) {
 			e.preventDefault();
-			this.$store.commit("setLoading");
-
-			// const data = {};
-			// this.$store.dispatch("register", data); //dispatchning 2-parametri payload deyiladi
+			this.$store.dispatch("register");
 		},
 	},
 };

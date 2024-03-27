@@ -3,9 +3,9 @@
 		<input
 			:type="type"
 			class="form-control"
-			id="floatingPassword"
-			placeholder="label" />
-		<label for="floatingPassword">{{ label }}</label>
+		
+			placeholder />
+		<label>{{ label }}</label>
 	</div>
 </template>
 <script>
