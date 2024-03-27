@@ -1,16 +1,16 @@
-// import AuthService from "@/service/auth";
- 
-//state ochamiz
-// const state = {
-// 	isLoading: false,
-// };
+// import AuthService from "@/service/auth"
 
-//uni mutatsiyaga uchratamiz
-// const mutations = {
-// 	setLoading(state) {
-// 		state.isLoading = true;
-// 	},
-// };
+// state ochamiz
+const state = {
+	isLoading: false,
+};
+
+// uni mutatsiyaga uchratamiz
+const mutations = {
+	setLoading(state) {
+		state.isLoading = true;
+	},
+};
 
 //bu yerda action payloadiga(ya'ni 2-parametr) userni bervoramiz
 // const actions = {
@@ -19,4 +19,4 @@
 // 	},
 // };
 
-// export default { state, mutations, actions };
+export default { state, mutations };

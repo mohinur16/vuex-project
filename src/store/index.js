@@ -1,5 +1,5 @@
-// import { createStore } from "vuex";
-// import auth from "@/modules/auth";
+import { createStore } from "vuex"
+import auth from "@/modules/auth";
 // const store = createStore({
 // 	state() {
 // 		return {
@@ -10,23 +10,11 @@
 // 	modules: { auth },
 // });
 
-// import { createApp } from "vue";
-import { createStore } from "vuex";
-
 // Create a new store instance.
 const store = createStore({
-	state() {
-		return {
-			count: 0,
-		};
-	},
-	mutations: {
-		increment(state) {
-			state.count++;
-		},
-		decrement(state) {
-			state.count--;
-		},
-	},
+	state: {},
+	mutations: {},
+	actions: {},
+	modules: {auth},
 });
 export default store;

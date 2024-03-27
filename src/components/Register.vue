@@ -26,13 +26,14 @@
 export default {
 	computed: {
 		isLoading() {
-			return this.$store.state.auth.isLoding;
+			return this.$store.state.auth.isLoading;
 		},
 	},
 	methods: {
 		submitHandler(e) {
 			e.preventDefault();
-			this.$store.commit(setLoading);
+			this.$store.commit("setLoading");
+
 			// const data = {};
 			// this.$store.dispatch("register", data); //dispatchning 2-parametri payload deyiladi
 		},
