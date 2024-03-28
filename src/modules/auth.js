@@ -1,3 +1,5 @@
+import AuthService from "@/service/auth";
+
 // state ochamiz
 const state = {
 	isLoading: false,
@@ -11,10 +13,8 @@ const mutations = {
 };
 //action yozamiz va uni register.vue da dispatch qilamiz
 const actions = {
-	register(contex) {
-		setTimeout(() => {
-			contex.commit("setLoading");
-		}, 2000);
+	register(contex, user) {
+		AuthService.register(user);
 	},
 };
 
