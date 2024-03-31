@@ -36,11 +36,15 @@ export default {
 		submitHandler(e) {
 			e.preventDefault();
 			const data = {
-				username: "Mahina",
-				email: "exa1m@io",
+				username: "Masda",
+				email: "exqm@io",
 				password: "123",
 			};
-			this.$store.dispatch("register", data);
+			//storedan moduls.auth-actiondagi registerni xam resolve,rejectlarni xam oson qabulqilib olamiz:
+			this.$store
+				.dispatch("register", data)
+				.then((user) => console.log("Resolve", user)) //resolvedan keladi
+				.catch((errors) => console.log("Reject", errors)); //rejectdan kladi
 		},
 	},
 };
