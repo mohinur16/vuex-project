@@ -5,15 +5,15 @@
 			<Input
 				:type="'text'"
 				:label="'Your name'"
-				id="1" />
+				v-model="username" />
 			<Input
 				:type="'email'"
 				:label="'Email address'"
-				id="2" />
+				v-model="email" />
 			<Input
 				:type="'password'"
 				:label="'Password'"
-				id="3" />
+				v-model="password" />
 
 			<Button
 				type="submit"
@@ -27,6 +27,13 @@
 </template>
 <script>
 export default {
+	data() {
+		return {
+			username: "",
+			email: "",
+			password: "", //input valularni o'zlashtiramiz va uni dataga beramiz.ui-componentada xam bazi ishlar qilamiz
+		};
+	},
 	computed: {
 		isLoading() {
 			return this.$store.state.auth.isLoading;
@@ -36,14 +43,17 @@ export default {
 		submitHandler(e) {
 			e.preventDefault();
 			const data = {
-				username: "Masda",
-				email: "exqm@io",
-				password: "123",
+				username: this.username,
+				email: this.email,
+				password: this.password,
 			};
 			//storedan moduls.auth-actiondagi registerni xam resolve,rejectlarni xam oson qabulqilib olamiz:
 			this.$store
 				.dispatch("register", data)
-				.then((user) => console.log("Resolve", user)) //resolvedan keladi
+				.then((user) => {
+					this.$router.push({ name: "home" });//bunda agar user to'g'ri registratsiya qilganda router home-ui ga yuboradi userni
+					console.log("Resolve", user);
+				}) //resolvedan keladi
 				.catch((errors) => console.log("Reject", errors)); //rejectdan kladi
 		},
 	},
