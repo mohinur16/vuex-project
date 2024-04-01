@@ -1,3 +1,4 @@
+import { setItem } from "@/helpers/persistaneStorage";
 import AuthService from "@/service/auth";
 
 // state ochamiz
@@ -33,6 +34,7 @@ const actions = {
 					contex.commit("registerSuccess", res.data.user); //payload mutationga chiqadi va u yerda stateni o'zgartiradi
 					//resolvega esa qaytariladigan datani yuboramiz,buni Register.vue da qabul qilamiz keyin
 					resolve(res.data.user);
+					setItem("token", res.data.user.token);//user tokenini local storage ga saqlash
 				})
 				.catch((err) => {
 					contex.commit("registerFailure", err.response.data.errors); //buyam registerFailure bo'lganida errorni statedagi errorsga bervoradi va statelarni ui da userga ko'rsatish imkonini beradi.Bunda Promise resolve va reject parametrlari orqali qilinadi:
